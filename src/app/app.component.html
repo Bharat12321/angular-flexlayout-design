@@ -1,39 +1,53 @@
-<div class="container"
-     fxLayout
-     fxLayout.xs="column"
-     fxLayoutAlign="center"
-     fxLayoutGap="50px"
-     fxLayoutGap.xs="0">
+<mat-card class="example-card">
+   <mat-card-header>
+     <mat-card-title> <b>Profile Details</b></mat-card-title>
+   </mat-card-header>
+   <mat-card-content>
+    <mat-grid-list cols="2" rowHeight="50px">
+      <mat-grid-tile>
+        <label> <span class="astrek">*</span> <b>First Name: </b> &nbsp;</label>        
+        <mat-form-field class="example-full-width">
+        <input matInput placeholder="first name" [(ngModel)]="firstname" name="firstname" required>
+        </mat-form-field>       
+      </mat-grid-tile>
+      <mat-grid-tile>
+       <label> <span class="astrek">*</span> <b>Last Name: </b> &nbsp;</label>        
+       <mat-form-field class="example-full-width">
+       <input matInput placeholder="last name" [(ngModel)]="lastname" name="lastname" required>
+       </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+          <label> <span class="astrek">*</span> <b>Email: </b> &nbsp;</label>               
+       <mat-form-field class="example-full-width">
+       <input matInput placeholder="email" type="email" [(ngModel)]="email" name="email" required pattern="[^ @]*@[^ @]*">
+       </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+          <label> <span class="astrek">*</span> <b>Phone Number: </b> &nbsp;</label>                
+       <mat-form-field class="example-full-width">
+       <input matInput placeholder="phone" [(ngModel)]="phone" name="phone" required>
+       </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+          <label> <span class="astrek"><span class="astrek">*</span></span> <b>Department: </b> &nbsp;</label>                
+        <mat-form-field class="example-full-width">
+          <mat-select placeholder="Select" name="department" [(ngModel)]="department">
+            <mat-option value="option">Please select department</mat-option>
+            <mat-option *ngFor="let department of departments" [value]="department">{{department.depName}} </mat-option>            
+          </mat-select>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+          <label> <span class="astrek">*</span> <b> Role: </b>&nbsp;</label>                
+        <mat-form-field class="example-full-width">
+          <mat-select placeholder="Select" name="role" [(ngModel)]="role">
+            <mat-option value="option">Please select role</mat-option>
+            <mat-option *ngFor="let role of roles" [value]="role">{{role.roleName}} </mat-option>                       
+          </mat-select>
+        </mat-form-field>
+      </mat-grid-tile>      
 
-  <div class="item item-1 f" fxFlex="65%">Item 1</div>
-    
-    <div class="item item-3 f" fxFlex>
-      <div class="container2"
-           fxLayout
-           fxLayout.xs="column"
-           fxLayoutAlign="center"
-           fxLayoutGap="10px"
-           fxLayoutGap.xs="0">
-        <div class="item2 item-4 f" fxFlex fxFlexOffset="0px"  fxFlexOffset.xs="0">Item 4</div>
-        <div class="item2 item-5 f" fxFlex="200px">Item 5</div>
-      </div>
-    </div>
-
-  <div class="item item-3 f" fxFlex>Item 4</div>
-  <div class="item item-2 f" fxFlex="20%" fxFlexOrder="3">Item 2</div>
-
-</div>
-
-<div style="width:200px;background-color: purple;">
-  Hey  
-</div>
-
-<div class="container"
-     fxLayout
-     fxLayout.xs="column"
-     fxLayoutAlign="center"
-     fxLayoutGap="10px"
-     fxLayoutGap.xs="0">
-  <div class="item item-4 f" fxFlex fxFlexOffset="0px"  fxFlexOffset.xs="0">Item 4</div>
-  <div class="item item-5 f" fxFlex="200px">Item 5</div>
-</div>
+    </mat-grid-list>
+    <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+   </mat-card-content>
+ </mat-card>
